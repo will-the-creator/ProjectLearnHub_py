@@ -1,19 +1,26 @@
 import tkinter as tk
 
+def show_thank_you(path):
+    # Function to display the "thank you" message for the chosen path
+    message = f"Thank you for choosing Path {path}"
+    # Clear the existing content in the frame
+    for widget in frame.winfo_children():
+        widget.destroy()
+    # Display the "thank you" message
+    label = tk.Label(frame, text=message)
+    label.pack(padx=20, pady=20)
+
 def choose_path(path):
-    if path == 1:
-        # Handle path 1
-        print("Path 1 chosen")
-    elif path == 2:
-        # Handle path 2
-        print("Path 2 chosen")
-    elif path == 3:
-        # Handle path 3
-        print("Path 3 chosen")
+    # Function to handle path selection
+    show_thank_you(path)
 
 # Create the main application window
 root = tk.Tk()
 root.title("Advanced Application")
+
+# Create a frame to contain the message
+frame = tk.Frame(root)
+frame.grid(row=0, column=1, padx=20, pady=20)
 
 # Function to create a box with specified path
 def create_box(path):
@@ -25,4 +32,3 @@ for i in range(1, 4):
     create_box(i)
 
 root.mainloop()
-
